@@ -1,48 +1,218 @@
-{% extends "base.html" %}
+<!doctype html>
 {% load staticfiles %}
+<html lang="en">
 
-{% block content %}
+	<head>
+		<meta charset="utf-8">
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="{% static 'lang-logo.png'%}">
-    </a>
-    <h1>Getting Started with Python on Heroku</h1>
-    <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-python"><span class="glyphicon glyphicon-flash"></span> Getting Started with Python</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/python-getting-started">Heroku Button</a> on the repository.</li>
+		<title>AP analysis</title>
 
-        <li>When Heroku received the source code, it grabbed all the dependencies in the <a href="https://github.com/heroku/python-getting-started/blob/master/requirements.txt">requirements.txt file</a>.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-        <li>Check out the <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started</a> guide to learn more!</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/django-app-configuration">Configuring Django Apps for Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
-{% endblock %}
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="{% static 'css/reveal.css'%}">
+        <link rel="stylesheet" href="{% static 'css/theme/serif.css'%}" id="theme">
+
+		<!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="{% static 'lib/css/zenburn.css'%}">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '{% static 'css/print/pdf.css'%} : {% static 'css/print/paper.css'%};
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h3>Analysis for AP</h3>
+					<h3>The Newswhip Data Match Rate</h3>
+					<p>
+						<small>Created by <a href="http://github.com/totoliptondev">Tao Lin</a> </small>
+					</p>
+				</section>
+
+				<section>
+                    <h3>Associated Press wants to know how their contents are being used. </h3>
+                    <font color='red'> Problems: </font>
+                    <ul>
+                        <li>They do not have first hand information about consumer content usage. </li>
+                        <li>Their customers often modify the news title or content.  </li>
+                        <!-- <li> </li> -->
+
+                    </ul>
+				</section>
+
+				<section>
+                    <h3>AP's current solutions </h3>
+                    <ul>
+                        <li> Google Analytics on AP's own website. </li>
+                            <ul>
+                                <li>Measure number of views on AP's own stories. </li>
+                                <li>The metric often reflect AP's own placement of stories. </li>
+                            </ul>
+                        <li> Newswhip story monitoring service.  </li>
+                            <ul>
+                                <li>Newswhip parses various news websites and social media for AP's stories, and use the number of likes, views, and favorites to calculate a proprietary measure they call "velocity". </li>
+                                <li>Newswhip provides a list of "Trending Topic".</li>
+                            </ul>
+                        <!-- <li> </li> -->
+
+                    </ul>
+				</section>
+
+				<section>
+                    <h3>Newswhip's Product</h3>
+                    <img src = "{% static 'pics/newswhip.png'%}">
+				</section>
+				<section>
+                    <h3>Newswhip Match Rate (Confidence) </h3>
+                    <img src = "{% static 'pics/matchrate_all.png'%}">
+				</section>
+
+				<section>
+                <h3>Main questions of this analysis:</h3>
+                <ul>
+                    <li>What causes the match rate to vary?
+                    <li>Are the match rate different for different types of news?
+                    <li>Ultimately, what are some strategies for filtering out low confidence matches, and what is the trade off?
+                </ul>
+				</section>
+				<section>
+                <h3>Match Rate by Audience Region</h3>
+                <img src = "{% static 'pics/mr_by_audience.png'%}">
+				</section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                ###Match Rate by Audience Region Table
+                |Region|# of matches|mean|median| 
+                |--------------------------------  ------  --------
+                |Idaho|2363|0.80     | 0.99|
+                |Hawaii|2452|0.80     | 0.99|
+                |Wyoming|2361|0.80     | 0.99|
+                |Montana|2482|0.80     | 0.99|
+                |.....| | |
+                |Nan|4328|0.56|0.38|
+                |Australia|1425|0.55|0.45|
+                |United Kingdom|5278|0.52|      0.41|
+                |India|2891|0.47 |     0.40|
+
+                    </script>
+				</section>
+
+				<section>
+                <h3>Match Rate by Subjects</h3>
+                <img src = "{% static 'pics/mr_by_sub.png'%}">
+				</section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                ###Match Rate by Subjects
+                |Subject|# of matches|mean|median| 
+                |--------------------------------  ------  --------
+                |Record setting events|619|0.93|1.00|
+                |NFL Playoffs|863|0.90|1.00|
+                |Workplace violence|857|0.86|0.93|
+                |.....| | | |
+                |Central banking|804|0.47|0.36|
+                |Cricket|2523|0.45|0.41|
+                |Hip hop and rap|3598|0.43|0.33|
+                |Celebrity children|2361|0.39|0.33|
+                    </script>
+				</section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                ###Match Rate by Word Count 
+                |Word count | # of matches|mean|median| 
+                |--------------------------------  ------  --------
+                |1000 - 1050|6914|0.83|0.98|
+                |600 - 650|2619|0.75|0.91|
+                |850 - 900|2028|0.74|0.90|
+                |750 - 800|3116|0.72|0.87|
+                |.....| | | |
+                |100 - 150|28192|0.60|0.45|
+                |200 - 250|3384|0.56|0.40|
+                |Nan|4303|0.56|0.38|
+                |50 - 100|6399|0.43|0.33| 
+                    </script>
+                </section>
+                <section>
+                <h3>Observations</h3>
+                <ul>
+                    <li>Stories targeted for international audiences tend to have low match rate.
+                    <li>Stories targeted for domestic audiences have high match rate.
+                    <li>Longer stories have higher match rate, shorter stories(less than 400 words or Nan) have low match rate.
+                </ul>
+                </section>
+                <section>
+                <h3>Strategies for filtering out bad match</h3>
+                <ul>
+                    <li>average match rate for all: 0.64
+                    <li>average at 0.4 cutoff: 0.81, 36% match discarded
+                    <li>average at 0.45 cutoff: 0.86, 42% match discarded
+                    <li>average at 0.5 cutoff: 0.90, 48% match discarded
+                    <li>average at 0.55 cutoff: 0.92, 52% match discarded
+                    <li>average at 0.6 cutoff: 0.94, 54% match discarded
+                </ul>
+                </section>
+                <section>
+                <h3>Suggestions</h3>
+                <ul>
+                    <li>The higher the cutoff, the higher the match rate, and more matches discarded, 0.45/0.5 seems to be a good tradeoff.
+                    <li>A particular cutoff threshold can be appropriate for one type of story but excessive for others.
+                    <li>Implement a slider, along with match rate distribution for the same type of stories. 
+                </ul>
+                </section>
+			</div>
+
+		</div>
+
+        <script src="{% static 'lib/js/head.min.js'%}"></script>
+        <script src="{% static 'js/reveal.js'%}"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+                { src: "{% static 'lib/js/classList.js'%}", condition: function() { return !document.body.classList; } },
+                { src: "{% static 'plugin/markdown/marked.js'%}", condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: "{% static 'plugin/markdown/markdown.js'%}", condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: "{% static 'plugin/highlight/highlight.js'%}", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: "{% static 'plugin/zoom-js/zoom.js'%}", async: true },
+					{ src: "{% static 'plugin/notes/notes.js'%}", async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
